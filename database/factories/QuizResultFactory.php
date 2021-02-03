@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Quiz;
 use App\Models\QuizResult;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class QuizResultFactory extends Factory
@@ -22,7 +24,8 @@ class QuizResultFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'quiz_id' => ($quiz = Quiz::factory()->create())->id,
+            'user_id' => ($user = User::factory()->create())->id,
         ];
     }
 }

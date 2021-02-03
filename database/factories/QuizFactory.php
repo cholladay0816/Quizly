@@ -24,7 +24,7 @@ class QuizFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'user_id' => ($user = User::factory()->create())->id
+            'user_id' => ($user = User::factory()->create())->id,
         ];
     }
 }

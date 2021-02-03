@@ -11,11 +11,19 @@ class Answer extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->quizResult->user;
+    }
+    public function getUserAttribute()
+    {
+        return $this->user();
     }
     public function quiz()
     {
         return $this->quizResult->quiz;
+    }
+    public function choice()
+    {
+        return $this->belongsTo(Choice::class);
     }
     public function quizResult()
     {

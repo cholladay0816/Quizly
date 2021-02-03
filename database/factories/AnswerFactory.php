@@ -3,6 +3,8 @@
 namespace Database\Factories;
 
 use App\Models\Answer;
+use App\Models\Choice;
+use App\Models\QuizResult;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AnswerFactory extends Factory
@@ -22,7 +24,8 @@ class AnswerFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'choice_id' => ($choice = Choice::factory()->create())->id,
+            'quiz_result_id' => ($quizResult = QuizResult::factory()->create())->id,
         ];
     }
 }

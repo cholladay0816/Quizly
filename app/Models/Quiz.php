@@ -25,7 +25,6 @@ class Quiz extends Model
             return $result->user;
         });
     }
-
     // For relationship uniformity (doesn't require () for function call)
     public function getTakersAttribute()
     {
