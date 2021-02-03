@@ -21,7 +21,11 @@ class QuizResult extends Model
 
     public function questions()
     {
-        return 1;
+        return $this->quiz->questions;
+    }
+    public function getQuestionsAttribute()
+    {
+        return $this->questions();
     }
 
     public function answers()
@@ -31,16 +35,16 @@ class QuizResult extends Model
 
     public function score()
     {
-        return 100;
+        return ($this->correct() / $this->questions->count()) * 100;
     }
 
     public function incorrect()
     {
-        return 0;
+        return $this->questions->count() - $this->correct();
     }
 
     public function correct()
     {
-        return 1;
+        return $this->answers->where('correct', '1')->count();
     }
 }

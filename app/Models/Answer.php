@@ -25,6 +25,14 @@ class Answer extends Model
     {
         return $this->belongsTo(Choice::class);
     }
+    public function correct()
+    {
+        return $this->choice->correct;
+    }
+    public function getCorrectAttribute()
+    {
+        return $this->correct();
+    }
     public function question()
     {
         return $this->choice->question;
