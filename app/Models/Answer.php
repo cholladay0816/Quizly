@@ -25,6 +25,15 @@ class Answer extends Model
     {
         return $this->belongsTo(Choice::class);
     }
+    public function question()
+    {
+        return $this->choice->question;
+    }
+    public function getQuestionAttribute()
+    {
+        return $this->question();
+    }
+
     public function quizResult()
     {
         return $this->belongsTo(QuizResult::class);

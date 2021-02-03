@@ -17,6 +17,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->group(function() {
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/quizzes/create', [\App\Http\Controllers\QuizController::class, 'create'])
+        ->name('quizzes.create');
+    Route::get('/quizzes/{quiz}', [\App\Http\Controllers\QuizController::class, 'show'])
+        ->name('quizzes.show');
+
+
+});

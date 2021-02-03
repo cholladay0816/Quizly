@@ -17,6 +17,8 @@ class CreateChoicesTable extends Migration
             $table->id();
             $table->foreignIdFor(\App\Models\Question::class)->constrained()->cascadeOnDelete();;
             $table->string('title');
+            $table->unsignedInteger('points')->default(1);
+            $table->tinyInteger('correct')->default(0);
             $table->timestamps();
         });
     }

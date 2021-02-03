@@ -24,7 +24,7 @@ class QuizController extends Controller
      */
     public function create()
     {
-        //
+        return view('livewire.quizzes.create');
     }
 
     /**
