@@ -51,6 +51,7 @@ class QuizResultTest extends TestCase
             Choice::factory(2)->create(['question_id' => $question->id, 'correct' => $correct]);
             $correct--;
         }
+        /** @var QuizResult $quizResult */
         $quizResult = QuizResult::factory()->create(['quiz_id' => $quiz->id]);
         $pick = 0;
         foreach ($questions as $question)
