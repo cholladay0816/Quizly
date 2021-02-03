@@ -2,18 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\Choice;
 use App\Models\Question;
-use App\Models\Quiz;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class QuestionFactory extends Factory
+class ChoiceFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Question::class;
+    protected $model = Choice::class;
 
     /**
      * Define the model's default state.
@@ -24,7 +24,7 @@ class QuestionFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'quiz_id' => ($quiz = Quiz::factory()->create())->id,
+            'question_id' => ($question = Question::factory()->create())->id,
         ];
     }
 }
